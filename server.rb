@@ -32,6 +32,7 @@ PORT = (ENV['PORT'] || 8080).to_i
 # ── WEBrick server ──
 server = WEBrick::HTTPServer.new(
   Port: PORT,
+  BindAddress: '0.0.0.0',
   DocumentRoot: __dir__,
   Logger: WEBrick::Log.new($stdout, WEBrick::Log::INFO),
   AccessLog: [[File.open(File::NULL, 'w'), WEBrick::AccessLog::COMMON_LOG_FORMAT]]
